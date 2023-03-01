@@ -6,7 +6,7 @@ function App() {
  
    
    const datacall=async()=>{
-    const {data}=await axios.post("/token");
+    const {data}=await axios.post("https://cookie-b.onrender.com/token");
     localStorage.setItem("token",data.token)
 
    }
@@ -17,7 +17,7 @@ function App() {
     
     // const tok=JSON.stringify(token);
     // console.log(tok);
-    const {data}=await axios.post("/getToken",{token});
+    const {data}=await axios.post("https://cookie-b.onrender.com/getToken",{token});
     console.log(data);
    }
 
