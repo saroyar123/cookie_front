@@ -7,7 +7,7 @@ function App() {
    
    const datacall=async()=>{
     const {data}=await axios.post("https://cookie-b.onrender.com/token");
-    console.log(dada.token);
+    console.log(data.token);
     localStorage.setItem("token",data.token)
 
    }
