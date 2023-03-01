@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+
 
 function App() {
+ 
+   
+   const datacall=async()=>{
+    const {data}=await axios.post("/token");
+    localStorage.setItem("token",data.token)
+
+   }
+
+
+   const getToken=async()=>{
+    const token=localStorage.getItem("token");
+    
+    // const tok=JSON.stringify(token);
+    // console.log(tok);
+    const {data}=await axios.post("/getToken",{token});
+    console.log(data);
+   }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hello
+      <button onClick={()=>datacall()}>token</button>
+      <button onClick={()=>getToken()}>getToken</button>
     </div>
   );
 }
